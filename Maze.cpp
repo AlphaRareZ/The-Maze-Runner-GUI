@@ -5,37 +5,25 @@ class Maze{
 private:
     // up down left right
     //this for walls directions
-    int dx_cell[4] = {-2, +0, +0, +2};
-    int dy_cell[4] = {+0, +2, -2, +0};
+    int dxCell[4] = {-2, +0, +0, +2};
+    int dyCell[4] = {+0, +2, -2, +0};
 
     //this for valid cells
     int dx_wall[4] = {-1, +0, +0, +1};
     int dy_wall[4] = {+0, +1, -1, +0};
 
-    int gridSize;
-    //size of the maze(varying based on the player chosen level)
-    int N{0};
-
-
-    /*
-    - Acts like timer for the player to solve the maze.
-    - Each level has time limits.
-    - 30S for level 1, 60S for level 2, 100S for level 3.
-    */
-    int seconds_limit{0};
-
+    int gridSize,N{0},secondsLimit{0},//the initial position row and column
+    playerRow{1}, playerCol{1};;
 
     //the 2d character array represents the maze.
-    vector<vector<char>> arr; // Initialize with spaces
+    vector<vector<char>> mazeGrid; // Initialize with spaces
     bool visited[41][41]{0};
 
 
     //check if the given row and column valid or not
-    bool valid(int r, int c) {
+    bool validDecision(int r, int c) {
         return (r > -1) and (r < 2 * N + 1) and (c > -1) and (c < 2 * N + 1);
     }
-
-
     /*
 - Used only 1 time.
 - You can replace it in the generate maze function.
@@ -55,15 +43,15 @@ private:
         for (int i = 0; i < 2 * N + 1; i++) {
             for (int j = 0; j < 2 * N + 1; j++) {
                 if (i % 2 == 0) {
-                    arr[i][j] = j % 2 ? '-' : ' ';
+                    mazeGrid[i][j] = j % 2 ? '-' : ' ';
                 } else {
-                    arr[i][j] = j % 2 ? ' ' : '!';
+                    mazeGrid[i][j] = j % 2 ? ' ' : '!';
                 }
             }
         }
 
         //The initial position of the player, mark it as 'S'
-        arr[1][1] = 'S';
+        mazeGrid[1][1] = 'S';
     }
 
 
@@ -96,10 +84,10 @@ private:
 
             for (int i = 0; i < 4; i++) {
                 int new_r = curr.first, new_c = curr.second;
-                new_r += dx_cell[i];
-                new_c += dy_cell[i];
+                new_r += dxCell[i];
+                new_c += dyCell[i];
 
-                if (valid(new_r, new_c) and !visited[new_r][new_c]) {
+                if (validDecision(new_r, new_c) and !visited[new_r][new_c]) {
                     neighbors.push_back(i);
                 }
             }
@@ -119,54 +107,49 @@ private:
             int cell_r = curr.first, cell_c = curr.second;
             int wall_r = curr.first, wall_c = curr.second;
 
-            cell_r += dx_cell[dir], cell_c += dy_cell[dir];
+            cell_r += dxCell[dir], cell_c += dyCell[dir];
             wall_r += dx_wall[dir], wall_c += dy_wall[dir];
 
 
             visited[cell_r][cell_c] = true;
-            arr[wall_r][wall_c] = ' ';
+            mazeGrid[wall_r][wall_c] = ' ';
 
             pair<int, int> node = {cell_r, cell_c};
             st.push(node);
         }
     }
 
-    //the initial position row and column
-    int s_r{1}, s_c{1};
+    
 
+    void format_maze(){
+        for (int i = 0; i < getGridSize(); ++i)
+        {
+            for (int j = 0; j < getGridSize(); ++j)
+            {
+                if(mazeGrid[i][j]=='S') continue;
 
-public:
-    void change_dir(char c) {
-        if (c == 'w' and valid(s_r - 2, s_c) and arr[s_r - 1][s_c] == ' ') {
-            arr[s_r][s_c] = ' ';
-            s_r -= 2;
-            arr[s_r][s_c] = 'S';
-        } else if (c == 's' and valid(s_r + 2, s_c) and arr[s_r + 1][s_c] == ' ') {
-            arr[s_r][s_c] = ' ';
-            s_r += 2;
-            arr[s_r][s_c] = 'S';
-        } else if (c == 'a' and valid(s_r, s_c - 2) and arr[s_r][s_c - 1] == ' ') {
-            arr[s_r][s_c] = ' ';
-            s_c -= 2;
-            arr[s_r][s_c] = 'S';
-        } else if (c == 'd' and valid(s_r, s_c + 2) and arr[s_r][s_c + 1] == ' ') {
-            arr[s_r][s_c] = ' ';
-            s_c += 2;
-            arr[s_r][s_c] = 'S';
+                bool condition = j % 2 == 0 && i % 2 == 0 && mazeGrid[i][j] == ' ';
+                if (condition || i % (getGridSize() - 1) == 0 || j % (getGridSize() - 1) == 0 || mazeGrid[i][j] != ' ')
+                {
+                    getMaze()[i][j] = '.';
+                }
+            }
         }
     }
+public:
     Maze(int N){
         this->N = N;
-        arr.resize(41);
-        for(auto&i:arr){
+        mazeGrid.resize(41);
+        for(auto&i:mazeGrid){
             i.resize(41);
         }
         this->gridSize = 2*N+1;
         initialize_maze();
         generate_maze();
+        format_maze();
     }
-    vector<vector<char>> getMaze(){
-        return arr;
+    vector<vector<char>>& getMaze(){
+        return mazeGrid;
     }
     int getGridSize(){
         return gridSize;
@@ -174,8 +157,27 @@ public:
     void print_maze() {
         for (int i = 0; i < 2 * N + 1; i++) {
             for (int j = 0; j < 2 * N + 1; j++)
-                cout << arr[i][j];
+                cout << mazeGrid[i][j];
             cout << '\n';
+        }
+    }
+    void change_dir(char c) {
+        if (c == 'w' and validDecision(playerRow - 2, playerCol) and mazeGrid[playerRow - 1][playerCol] == ' ') {
+            mazeGrid[playerRow][playerCol] = ' ';
+            playerRow -= 2;
+            mazeGrid[playerRow][playerCol] = 'S';
+        } else if (c == 's' and validDecision(playerRow + 2, playerCol) and mazeGrid[playerRow + 1][playerCol] == ' ') {
+            mazeGrid[playerRow][playerCol] = ' ';
+            playerRow += 2;
+            mazeGrid[playerRow][playerCol] = 'S';
+        } else if (c == 'a' and validDecision(playerRow, playerCol - 2) and mazeGrid[playerRow][playerCol - 1] == ' ') {
+            mazeGrid[playerRow][playerCol] = ' ';
+            playerCol -= 2;
+            mazeGrid[playerRow][playerCol] = 'S';
+        } else if (c == 'd' and validDecision(playerRow, playerCol + 2) and mazeGrid[playerRow][playerCol + 1] == ' ') {
+            mazeGrid[playerRow][playerCol] = ' ';
+            playerCol += 2;
+            mazeGrid[playerRow][playerCol] = 'S';
         }
     }
 };

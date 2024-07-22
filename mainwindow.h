@@ -17,7 +17,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    void createGrid(QPixmap &texture,const int &cellSize);
+    void createGrid(const int &cellSize);
 
 private:
     Ui::MainWindow *ui;

@@ -10,6 +10,8 @@ CONFIG += c++17
 
 SOURCES += \
     Maze.cpp \
+    Wall.cpp \
+    Player.cpp \
     main.cpp \
     mainwindow.cpp
 

@@ -22,6 +22,7 @@ public:
     bool canMoveDown();
     bool canMoveRight();
     bool canMoveLeft();
+    bool isWin();
 
 private:
     // Initialize the maze with spaces
@@ -49,7 +50,7 @@ private:
     int dy_wall[4] = {+0, +1, -1, +0};
     int gridSize, N{0}, secondsLimit{0}, playerRow{1}, playerCol{1};
     std::vector<std::vector<char>> mazeGrid;
-    bool visited[41][41]{0};
+    bool visited[100][100]{0};
 };
 
 #endif // MAZE_H

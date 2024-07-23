@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/sounds">
+        <file>bgSound.mp3</file>
+        <file>move.wav</file>
+        <file>loseSound.wav</file>
+        <file>winSound.wav</file>
+    </qresource>
+</RCC>

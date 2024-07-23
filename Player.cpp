@@ -1,6 +1,7 @@
 #include "Player.h"
 #include <QPixmap>
 #include <iostream>
+#include "GameSounds.h"
 #include "MazeController.h" // Include your MazeController header file
 
 using namespace std;
@@ -57,5 +58,9 @@ void Player::keyPressEvent(QKeyEvent *event) {
         if(controller->canMoveRight()){
             moveRight();
         }
+    }
+    if(controller->isWin()){
+        controller->stopBGMusic();
+        controller->playVictoryMusic();
     }
 }

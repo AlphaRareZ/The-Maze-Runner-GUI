@@ -5,9 +5,11 @@
 #include <QPixmap>
 #include <QVBoxLayout>
 #include <QDebug> // For debug output
+#include <QMediaPlayer>
+#include <QAudioOutput>
+#include <GameSounds.h>
 #include "Wall.h"
-#include "mazecontroller.h"
-#include "Player.h"
+#include "MazeController.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -24,8 +26,8 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     // CONTROLLER THAT MANAGES THE SIZE OF MAZE
-    this->controller = new MazeController(15);
-
+    this->controller = new MazeController(7);
+    controller->playBGMusic();
 
 
     // Create a layout and add the graphicsView to it
@@ -64,7 +66,7 @@ void MainWindow::createGrid(const int &cellSize)
         {
             int x = j * cellSize;
             int y = i * cellSize;
-            if(controller->getMazeGrid()[i][j]=='S'){
+            if(i==1 and j==1){
                 Player *player = new Player(x,y,cellSize,controller);
                 scene->addItem(player);
             }

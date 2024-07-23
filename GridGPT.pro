@@ -1,4 +1,5 @@
-QT       += core gui
+QT       += core gui \
+            multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -12,6 +13,7 @@ SOURCES += \
     Maze.cpp \
     Wall.cpp \
     Player.cpp \
+    gamesounds.cpp \
     main.cpp \
     mainwindow.cpp \
     mazecontroller.cpp
@@ -20,6 +22,7 @@ HEADERS += \
     Maze.h \
     Player.h \
     Wall.h \
+    gamesounds.h \
     mainwindow.h \
     mazecontroller.h
 
@@ -30,3 +33,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    res.qrc

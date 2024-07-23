@@ -8,9 +8,9 @@ using namespace std;
 
 Maze::Maze(int N) {
     this->N = N;
-    mazeGrid.resize(41);
+    mazeGrid.resize(100);
     for (auto &i : mazeGrid) {
-        i.resize(41);
+        i.resize(100);
     }
     this->gridSize = 2 * N + 1;
     initialize_maze();
@@ -66,6 +66,11 @@ bool Maze::canMoveLeft() {
     return false;
 }
 
+bool Maze::isWin()
+{
+    return playerRow == gridSize-2 and playerCol==gridSize-2;
+}
+
 void Maze::initialize_maze() {
     for (int i = 0; i < 2 * N + 1; i++) {
         for (int j = 0; j < 2 * N + 1; j++) {
@@ -76,7 +81,7 @@ void Maze::initialize_maze() {
             }
         }
     }
-    mazeGrid[1][1] = 'S';
+    mazeGrid[1][1] = ' ';
 }
 
 void Maze::generate_maze() {

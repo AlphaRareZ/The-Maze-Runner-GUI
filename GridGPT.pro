@@ -13,10 +13,14 @@ SOURCES += \
     Wall.cpp \
     Player.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    mazecontroller.cpp
 
 HEADERS += \
-    mainwindow.h
+    Maze.h \
+    Player.h \
+    mainwindow.h \
+    mazecontroller.h
 
 FORMS += \
     mainwindow.ui

@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include <QGraphicsScene>
 #include <QPixmap>
-#include <bits/stdc++.h>
+#include <MazeController.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -21,7 +21,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
-
+    MazeController *controller;
     QGraphicsScene *scene;
     QGraphicsView *graphicsView;
 };

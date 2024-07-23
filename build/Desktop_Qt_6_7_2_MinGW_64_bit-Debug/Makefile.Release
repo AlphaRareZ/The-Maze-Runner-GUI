@@ -50,14 +50,23 @@ OBJECTS_DIR   = release
 
 ####### Files
 
-SOURCES       = ..\..\main.cpp \
-		..\..\mainwindow.cpp release\moc_mainwindow.cpp
-OBJECTS       = release/main.o \
+SOURCES       = ..\..\Player.cpp \
+		..\..\main.cpp \
+		..\..\mainwindow.cpp \
+		..\..\mazecontroller.cpp release\moc_mainwindow.cpp
+OBJECTS       = release/Player.o \
+		release/main.o \
 		release/mainwindow.o \
+		release/mazecontroller.o \
 		release/moc_mainwindow.o
 
-DIST          =  ..\..\mainwindow.h ..\..\main.cpp \
-		..\..\mainwindow.cpp
+DIST          =  ..\..\Maze.h \
+		..\..\Player.h \
+		..\..\mainwindow.h \
+		..\..\mazecontroller.h ..\..\Player.cpp \
+		..\..\main.cpp \
+		..\..\mainwindow.cpp \
+		..\..\mazecontroller.cpp
 QMAKE_TARGET  = GridGPT
 DESTDIR        = release\ #avoid trailing-slash linebreak
 TARGET         = GridGPT.exe
@@ -77,10 +86,10 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) GridGPT.zip $(SOURCES) $(DIST) ..\..\GridGPT.pro D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\spec_pre.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\device_config.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\common\sanitize.conf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\common\gcc-base.conf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\common\g++-base.conf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\win32\windows_vulkan_sdk.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\common\windows-vulkan.conf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\common\g++-win32.conf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\common\windows-desktop.conf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\qconfig.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_ext_freetype.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_ext_libjpeg.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_ext_libpng.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_charts.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_charts_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_chartsqml.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_chartsqml_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_concurrent.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_concurrent_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_core.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_core_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_dbus.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_dbus_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_designer.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_designer_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_designercomponents_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_entrypoint_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_example_icons_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_fb_support_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_freetype_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_gui.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_gui_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_harfbuzz_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_help.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_help_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_jpeg_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_labsanimation.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_labsanimation_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_labsfolderlistmodel.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_labsfolderlistmodel_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_labsqmlmodels.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_labsqmlmodels_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_labssettings.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_labssettings_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_labssharedimage.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_labssharedimage_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_labswavefrontmesh.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_labswavefrontmesh_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_linguist.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_multimedia.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_multimedia_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_multimediaquick_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_multimediawidgets.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_network.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_network_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_opengl.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_opengl_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_openglwidgets.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_openglwidgets_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_packetprotocol_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_png_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_printsupport.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_printsupport_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qdoccatch_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qdoccatchconversions_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qdoccatchgenerators_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qml.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qml_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlbuiltins.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlbuiltins_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlcompiler.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlcompiler_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlcore.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlcore_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmldebug_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmldom_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlintegration.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlintegration_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmllocalstorage.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmllocalstorage_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlls_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlmodels.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlmodels_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlnetwork.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlnetwork_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmltest.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmltest_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmltoolingsettings_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmltyperegistrar_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlworkerscript.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlworkerscript_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlxmllistmodel.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlxmllistmodel_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3d.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3d_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dassetimport.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dassetimport_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dassetutils.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dassetutils_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3deffects.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3deffects_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dglslparser_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dhelpers.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dhelpers_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dhelpersimpl.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dhelpersimpl_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3diblbaker.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3diblbaker_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dparticleeffects.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dparticleeffects_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dparticles.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dparticles_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3druntimerender.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3druntimerender_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dspatialaudio_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dutils.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dutils_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2basic.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2basic_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2basicstyleimpl.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2basicstyleimpl_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2fusion.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2fusion_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2fusionstyleimpl.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2fusionstyleimpl_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2imagine.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2imagine_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2imaginestyleimpl.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2imaginestyleimpl_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2impl.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2impl_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2material.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2material_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2materialstyleimpl.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2materialstyleimpl_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2universal.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2universal_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2universalstyleimpl.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2universalstyleimpl_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2windowsstyleimpl.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2windowsstyleimpl_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrolstestutilsprivate_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickdialogs2.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickdialogs2_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickdialogs2utils.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickdialogs2utils_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickeffects_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicklayouts.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicklayouts_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickparticles_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickshapes_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicktemplates2.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicktestutilsprivate_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicktimeline.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicktimeline_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicktimelineblendtrees.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicktimelineblendtrees_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickwidgets.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickwidgets_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_shadertools.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_shadertools_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_spatialaudio.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_spatialaudio_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_sql.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_sql_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_svg.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_svg_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_svgwidgets.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_svgwidgets_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_testlib.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_testlib_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_tools_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_uiplugin.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_uitools.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_uitools_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_widgets.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_widgets_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_xml.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_xml_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_zlib_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\qt_functions.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\qt_config.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\win32-g++\qmake.conf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\spec_post.prf .qmake.stash D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\exclusive_builds.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\toolchain.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\default_pre.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\win32\default_pre.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\resolve_config.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\exclusive_builds_post.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\default_post.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\build_pass.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\qml_debug.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\precompile_header.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\warn_on.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\permissions.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\qt.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\resources_functions.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\resources.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\moc.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\win32\opengl.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\uic.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\qmake_use.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\file_copies.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\win32\windows.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\testcase_targets.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\exceptions.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\yacc.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\lex.prf ..\..\GridGPT.pro D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\lib\Qt6Widgets.prl D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\lib\Qt6Gui.prl D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\lib\Qt6Core.prl D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\lib\Qt6EntryPoint.prl    D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\data\dummy.cpp ..\..\mainwindow.h  ..\..\Maze.cpp ..\..\Wall.cpp ..\..\Player.cpp ..\..\main.cpp ..\..\mainwindow.cpp ..\..\mainwindow.ui    
+	$(ZIP) GridGPT.zip $(SOURCES) $(DIST) ..\..\GridGPT.pro D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\spec_pre.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\device_config.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\common\sanitize.conf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\common\gcc-base.conf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\common\g++-base.conf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\win32\windows_vulkan_sdk.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\common\windows-vulkan.conf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\common\g++-win32.conf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\common\windows-desktop.conf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\qconfig.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_ext_freetype.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_ext_libjpeg.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_ext_libpng.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_charts.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_charts_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_chartsqml.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_chartsqml_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_concurrent.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_concurrent_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_core.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_core_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_dbus.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_dbus_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_designer.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_designer_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_designercomponents_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_entrypoint_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_example_icons_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_fb_support_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_freetype_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_gui.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_gui_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_harfbuzz_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_help.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_help_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_jpeg_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_labsanimation.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_labsanimation_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_labsfolderlistmodel.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_labsfolderlistmodel_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_labsqmlmodels.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_labsqmlmodels_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_labssettings.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_labssettings_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_labssharedimage.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_labssharedimage_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_labswavefrontmesh.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_labswavefrontmesh_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_linguist.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_multimedia.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_multimedia_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_multimediaquick_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_multimediawidgets.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_network.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_network_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_opengl.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_opengl_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_openglwidgets.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_openglwidgets_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_packetprotocol_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_png_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_printsupport.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_printsupport_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qdoccatch_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qdoccatchconversions_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qdoccatchgenerators_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qml.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qml_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlbuiltins.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlbuiltins_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlcompiler.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlcompiler_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlcore.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlcore_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmldebug_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmldom_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlintegration.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlintegration_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmllocalstorage.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmllocalstorage_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlls_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlmodels.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlmodels_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlnetwork.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlnetwork_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmltest.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmltest_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmltoolingsettings_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmltyperegistrar_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlworkerscript.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlworkerscript_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlxmllistmodel.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlxmllistmodel_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3d.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3d_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dassetimport.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dassetimport_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dassetutils.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dassetutils_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3deffects.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3deffects_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dglslparser_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dhelpers.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dhelpers_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dhelpersimpl.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dhelpersimpl_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3diblbaker.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3diblbaker_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dparticleeffects.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dparticleeffects_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dparticles.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dparticles_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3druntimerender.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3druntimerender_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dspatialaudio_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dutils.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dutils_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2basic.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2basic_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2basicstyleimpl.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2basicstyleimpl_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2fusion.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2fusion_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2fusionstyleimpl.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2fusionstyleimpl_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2imagine.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2imagine_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2imaginestyleimpl.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2imaginestyleimpl_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2impl.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2impl_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2material.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2material_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2materialstyleimpl.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2materialstyleimpl_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2universal.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2universal_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2universalstyleimpl.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2universalstyleimpl_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2windowsstyleimpl.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2windowsstyleimpl_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrolstestutilsprivate_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickdialogs2.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickdialogs2_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickdialogs2utils.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickdialogs2utils_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickeffects_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicklayouts.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicklayouts_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickparticles_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickshapes_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicktemplates2.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicktestutilsprivate_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicktimeline.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicktimeline_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicktimelineblendtrees.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicktimelineblendtrees_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickwidgets.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickwidgets_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_shadertools.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_shadertools_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_spatialaudio.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_spatialaudio_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_sql.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_sql_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_svg.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_svg_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_svgwidgets.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_svgwidgets_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_testlib.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_testlib_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_tools_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_uiplugin.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_uitools.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_uitools_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_widgets.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_widgets_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_xml.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_xml_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\modules\qt_lib_zlib_private.pri D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\qt_functions.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\qt_config.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\win32-g++\qmake.conf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\spec_post.prf .qmake.stash D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\exclusive_builds.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\toolchain.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\default_pre.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\win32\default_pre.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\resolve_config.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\exclusive_builds_post.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\default_post.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\build_pass.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\qml_debug.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\precompile_header.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\warn_on.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\permissions.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\qt.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\resources_functions.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\resources.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\moc.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\win32\opengl.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\uic.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\qmake_use.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\file_copies.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\win32\windows.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\testcase_targets.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\exceptions.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\yacc.prf D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\lex.prf ..\..\GridGPT.pro D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\lib\Qt6Widgets.prl D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\lib\Qt6Gui.prl D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\lib\Qt6Core.prl D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\lib\Qt6EntryPoint.prl    D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\mkspecs\features\data\dummy.cpp ..\..\Maze.h ..\..\Player.h ..\..\mainwindow.h ..\..\mazecontroller.h  ..\..\Maze.cpp ..\..\Wall.cpp ..\..\Player.cpp ..\..\main.cpp ..\..\mainwindow.cpp ..\..\mazecontroller.cpp ..\..\mainwindow.ui    
 
 clean: compiler_clean 
-	-$(DEL_FILE) release\main.o release\mainwindow.o release\moc_mainwindow.o
+	-$(DEL_FILE) release\Player.o release\main.o release\mainwindow.o release\mazecontroller.o release\moc_mainwindow.o
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash
@@ -301,6 +310,13 @@ release/moc_mainwindow.cpp: ../../mainwindow.h \
 		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qpen.h \
 		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/QPixmap \
+		../../MazeController.h \
+		../../Maze.h \
+		../../Player.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtWidgets/qgraphicsitem.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qpainterpath.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/QKeyEvent \
 		release/moc_predefs.h \
 		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/bin/moc.exe
 	D:\ProgrammingTools\QT-Framework\6.7.2\mingw_64\bin\moc.exe $(DEFINES) --include D:/Projects/QT-Projects/GridGPT/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/release/moc_predefs.h -ID:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/mkspecs/win32-g++ -ID:/Projects/QT-Projects/GridGPT -ID:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include -ID:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtWidgets -ID:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui -ID:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore -I. -ID:/ProgrammingTools/QT-Framework/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -ID:/ProgrammingTools/QT-Framework/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -ID:/ProgrammingTools/QT-Framework/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -ID:/ProgrammingTools/QT-Framework/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -ID:/ProgrammingTools/QT-Framework/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -ID:/ProgrammingTools/QT-Framework/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\..\mainwindow.h -o release\moc_mainwindow.cpp
@@ -327,6 +343,189 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 
 ####### Compile
+
+release/Player.o: ../../Player.cpp ../../Player.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtWidgets/qgraphicsitem.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qtguiglobal.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qglobal.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtversionchecks.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtconfiginclude.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qconfig.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtcore-config.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtconfigmacros.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtcoreexports.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qcompilerdetection.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qprocessordetection.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qsystemdetection.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtdeprecationmarkers.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtpreprocessorsupport.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qassert.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtnoop.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtypes.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtversion.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtclasshelpermacros.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtypeinfo.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qcontainerfwd.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qsysinfo.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qlogging.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qflags.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qcompare_impl.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qatomic.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qbasicatomic.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qatomic_cxx11.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qgenericatomic.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qyieldcpu.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qconstructormacros.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qdarwinhelpers.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qexceptionhandling.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qforeach.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qttypetraits.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qfunctionpointer.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qglobalstatic.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qmalloc.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qminmax.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qnumeric.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qoverload.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qswap.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtenvironmentvariables.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtresource.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qttranslation.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qversiontagging.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qtgui-config.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qtguiexports.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtWidgets/qtwidgets-config.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtWidgets/qtwidgetsexports.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qobject.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qobjectdefs.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qnamespace.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtmetamacros.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qobjectdefs_impl.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qfunctionaltools_impl.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qstring.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qchar.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qstringview.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qbytearray.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qrefcount.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qarraydata.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qpair.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qarraydatapointer.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qarraydataops.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qcontainertools_impl.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qxptype_traits.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/q20functional.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/q20memory.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qbytearrayalgorithms.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qbytearrayview.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qstringfwd.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/q20type_traits.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qstringliteral.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qstringalgorithms.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qlatin1stringview.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qanystringview.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qutf8stringview.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qstringtokenizer.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qstringbuilder.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qstringconverter.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qstringconverter_base.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qlist.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qhashfunctions.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qiterator.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qbytearraylist.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qstringlist.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qalgorithms.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qstringmatcher.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qcoreevent.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qscopedpointer.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qmetatype.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qcompare.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qcomparehelpers.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qdatastream.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qiodevicebase.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qfloat16.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qmath.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qiterable.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qmetacontainer.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qcontainerinfo.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtaggedpointer.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qscopeguard.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qobject_impl.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qbindingstorage.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qvariant.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qdebug.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtextstream.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qcontiguouscache.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qsharedpointer.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qshareddata.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qsharedpointer_impl.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qmap.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qshareddata_impl.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qset.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qhash.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qvarlengtharray.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/q23utility.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qrect.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qmargins.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qsize.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qpoint.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qpainterpath.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qtransform.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qpolygon.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qregion.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qwindowdefs.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qwindowdefs_win.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qline.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qpixmap.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qpaintdevice.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qcolor.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qrgb.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qrgba64.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qimage.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qpixelformat.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/QKeyEvent \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qevent.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qiodevice.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qurl.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qeventpoint.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qvector2d.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qvectornd.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qpointingdevice.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qinputdevice.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qscreen.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/QList \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/QObject \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/QRect \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/QSize \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/QSizeF \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/QTransform \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qnativeinterface.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qscreen_platform.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qguiapplication.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qcoreapplication.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qdeadlinetimer.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qelapsedtimer.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qeventloop.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qcoreapplication_platform.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qfuture.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qfutureinterface.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qmutex.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtsan_impl.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qresultstore.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qfuture_impl.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qthreadpool.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qthread.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qrunnable.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qexception.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qpromise.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qinputmethod.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qlocale.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qguiapplication_platform.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qkeysequence.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/QPixmap \
+		../../MazeController.h \
+		../../Maze.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\Player.o ..\..\Player.cpp
 
 release/main.o: ../../main.cpp ../../mainwindow.h \
 		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtWidgets/QMainWindow \
@@ -521,6 +720,13 @@ release/main.o: ../../main.cpp ../../mainwindow.h \
 		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qpen.h \
 		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/QPixmap \
+		../../MazeController.h \
+		../../Maze.h \
+		../../Player.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtWidgets/qgraphicsitem.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qpainterpath.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/QKeyEvent \
 		../../Maze.cpp \
 		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtWidgets/QApplication \
 		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtWidgets/qapplication.h
@@ -719,10 +925,14 @@ release/mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qpen.h \
 		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/QPixmap \
-		ui_mainwindow.h \
+		../../MazeController.h \
+		../../Maze.h \
+		../../Player.h \
 		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qpainterpath.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/QKeyEvent \
+		ui_mainwindow.h \
 		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtWidgets/QGraphicsView \
 		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtWidgets/qgraphicsview.h \
 		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qpainter.h \
@@ -736,11 +946,191 @@ release/mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtWidgets/qlayoutitem.h \
 		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtWidgets/qgridlayout.h \
 		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/QDebug \
-		../../Maze.cpp \
 		../../Wall.cpp \
-		../../Player.cpp \
-		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/QKeyEvent
+		../../mazecontroller.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwindow.o ..\..\mainwindow.cpp
+
+release/mazecontroller.o: ../../mazecontroller.cpp ../../mazecontroller.h \
+		../../Maze.h \
+		../../Player.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtWidgets/qgraphicsitem.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qtguiglobal.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qglobal.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtversionchecks.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtconfiginclude.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qconfig.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtcore-config.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtconfigmacros.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtcoreexports.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qcompilerdetection.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qprocessordetection.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qsystemdetection.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtdeprecationmarkers.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtpreprocessorsupport.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qassert.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtnoop.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtypes.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtversion.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtclasshelpermacros.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtypeinfo.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qcontainerfwd.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qsysinfo.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qlogging.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qflags.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qcompare_impl.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qatomic.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qbasicatomic.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qatomic_cxx11.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qgenericatomic.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qyieldcpu.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qconstructormacros.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qdarwinhelpers.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qexceptionhandling.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qforeach.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qttypetraits.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qfunctionpointer.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qglobalstatic.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qmalloc.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qminmax.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qnumeric.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qoverload.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qswap.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtenvironmentvariables.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtresource.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qttranslation.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qversiontagging.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qtgui-config.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qtguiexports.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtWidgets/qtwidgets-config.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtWidgets/qtwidgetsexports.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qobject.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qobjectdefs.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qnamespace.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtmetamacros.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qobjectdefs_impl.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qfunctionaltools_impl.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qstring.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qchar.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qstringview.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qbytearray.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qrefcount.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qarraydata.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qpair.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qarraydatapointer.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qarraydataops.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qcontainertools_impl.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qxptype_traits.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/q20functional.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/q20memory.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qbytearrayalgorithms.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qbytearrayview.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qstringfwd.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/q20type_traits.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qstringliteral.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qstringalgorithms.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qlatin1stringview.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qanystringview.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qutf8stringview.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qstringtokenizer.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qstringbuilder.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qstringconverter.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qstringconverter_base.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qlist.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qhashfunctions.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qiterator.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qbytearraylist.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qstringlist.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qalgorithms.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qstringmatcher.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qcoreevent.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qscopedpointer.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qmetatype.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qcompare.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qcomparehelpers.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qdatastream.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qiodevicebase.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qfloat16.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qmath.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qiterable.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qmetacontainer.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qcontainerinfo.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtaggedpointer.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qscopeguard.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qobject_impl.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qbindingstorage.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qvariant.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qdebug.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtextstream.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qcontiguouscache.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qsharedpointer.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qshareddata.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qsharedpointer_impl.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qmap.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qshareddata_impl.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qset.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qhash.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qvarlengtharray.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/q23utility.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qrect.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qmargins.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qsize.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qpoint.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qpainterpath.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qtransform.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qpolygon.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qregion.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qwindowdefs.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qwindowdefs_win.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qline.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qpixmap.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qpaintdevice.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qcolor.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qrgb.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qrgba64.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qimage.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qpixelformat.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/QKeyEvent \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qevent.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qiodevice.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qurl.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qeventpoint.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qvector2d.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qvectornd.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qpointingdevice.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qinputdevice.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qscreen.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/QList \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/QObject \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/QRect \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/QSize \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/QSizeF \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/QTransform \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qnativeinterface.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qscreen_platform.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qguiapplication.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qcoreapplication.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qdeadlinetimer.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qelapsedtimer.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qeventloop.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qcoreapplication_platform.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qfuture.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qfutureinterface.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qmutex.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qtsan_impl.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qresultstore.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qfuture_impl.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qthreadpool.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qthread.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qrunnable.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qexception.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qpromise.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qinputmethod.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtCore/qlocale.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qguiapplication_platform.h \
+		D:/ProgrammingTools/QT-Framework/6.7.2/mingw_64/include/QtGui/qkeysequence.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mazecontroller.o ..\..\mazecontroller.cpp
 
 release/moc_mainwindow.o: release/moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\moc_mainwindow.o release\moc_mainwindow.cpp

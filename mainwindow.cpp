@@ -5,7 +5,7 @@
 #include <QPixmap>
 #include <QVBoxLayout>
 #include <QDebug> // For debug output
-#include "Wall.cpp"
+#include "Wall.h"
 #include "mazecontroller.h"
 #include "Player.h"
 
@@ -21,7 +21,12 @@ MainWindow::MainWindow(QWidget *parent)
         qCritical() << "Error: graphicsView is null.";
         return;
     }
-    this->controller = new MazeController(7);
+
+
+    // CONTROLLER THAT MANAGES THE SIZE OF MAZE
+    this->controller = new MazeController(15);
+
+
 
     // Create a layout and add the graphicsView to it
     QVBoxLayout *layout = new QVBoxLayout;
@@ -53,9 +58,9 @@ void MainWindow::createGrid(const int &cellSize)
 {
 
 
-    for (int i = 0; i < controller->getMaze()->getGridSize(); ++i)
+    for (int i = 0; i < controller->getGridSize(); ++i)
     {
-        for (int j = 0; j < controller->getMaze()->getGridSize(); ++j)
+        for (int j = 0; j < controller->getGridSize(); ++j)
         {
             int x = j * cellSize;
             int y = i * cellSize;

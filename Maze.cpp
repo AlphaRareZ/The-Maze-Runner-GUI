@@ -34,26 +34,6 @@ void Maze::print_maze() {
     }
 }
 
-void Maze::change_dir(char c) {
-    if (c == 'w' and validDecision(playerRow - 2, playerCol) and mazeGrid[playerRow - 1][playerCol] == ' ') {
-        mazeGrid[playerRow][playerCol] = ' ';
-        playerRow -= 2;
-        mazeGrid[playerRow][playerCol] = 'S';
-    } else if (c == 's' and validDecision(playerRow + 2, playerCol) and mazeGrid[playerRow + 1][playerCol] == ' ') {
-        mazeGrid[playerRow][playerCol] = ' ';
-        playerRow += 2;
-        mazeGrid[playerRow][playerCol] = 'S';
-    } else if (c == 'a' and validDecision(playerRow, playerCol - 2) and mazeGrid[playerRow][playerCol - 1] == ' ') {
-        mazeGrid[playerRow][playerCol] = ' ';
-        playerCol -= 2;
-        mazeGrid[playerRow][playerCol] = 'S';
-    } else if (c == 'd' and validDecision(playerRow, playerCol + 2) and mazeGrid[playerRow][playerCol + 1] == ' ') {
-        mazeGrid[playerRow][playerCol] = ' ';
-        playerCol += 2;
-        mazeGrid[playerRow][playerCol] = 'S';
-    }
-}
-
 bool Maze::canMoveUp() {
     if (validMovement(playerRow - 1, playerCol)) {
         playerRow--;

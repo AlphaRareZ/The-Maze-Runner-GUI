@@ -17,6 +17,11 @@ Player *MazeController::getPlayer()
     return player;
 }
 
+int MazeController::getGridSize()
+{
+    return maze->getGridSize();
+}
+
 Maze *MazeController::getMaze()
 {
     return maze;

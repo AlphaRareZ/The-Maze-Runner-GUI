@@ -11,6 +11,7 @@ public:
     MazeController(int mazeGridSize);
     void setPlayer(Player *player);
     Player* getPlayer();
+    int getGridSize();
     Maze* getMaze();
     vector<vector<char>>& getMazeGrid();
     bool canMoveUp();

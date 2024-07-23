@@ -17,9 +17,6 @@ public:
     // Print the maze
     void print_maze();
 
-    // Move the player in the maze
-    void change_dir(char c);
-
     // Check if player can move in the specified directions
     bool canMoveUp();
     bool canMoveDown();

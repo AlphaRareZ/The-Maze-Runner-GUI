@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 
-#include "Maze.cpp"
 #include <QApplication>
 
 int main(int argc, char *argv[])

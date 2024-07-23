@@ -19,6 +19,7 @@ SOURCES += \
 HEADERS += \
     Maze.h \
     Player.h \
+    Wall.h \
     mainwindow.h \
     mazecontroller.h
 
